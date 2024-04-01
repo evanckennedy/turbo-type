@@ -96,3 +96,8 @@ function startCount() {
 function startGame() {
   startCount()
 }
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Event Listeners                                      */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+utils.listen('click', start, startGame);

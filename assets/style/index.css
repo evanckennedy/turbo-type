@@ -83,7 +83,7 @@ h1, h2, p {
 
 .leaderboard-wrapper i {
   color: var(--white);
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .start-restart-wrapper {
@@ -99,8 +99,8 @@ h1, h2, p {
   transform: translate(-50%, -50%);
   color: var(--white);
   padding: .6rem 0;
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 500;
   border-radius: var(--border-radius-5);
 }
 
@@ -135,7 +135,7 @@ h1, h2, p {
 
 .icon-and-time i {
   position: absolute;
-  top: -.5rem;
+  top: .5rem;
   left: 50%; 
   transform: translateX(-50%);
   color: var(--white);
@@ -145,10 +145,6 @@ h1, h2, p {
 .hits-wrapper p {
   font-size: 2rem;
   font-weight: 600;
-}
-
-.hits {
-  color: var(--cyan);
 }
 
 .random-word-wrapper p {

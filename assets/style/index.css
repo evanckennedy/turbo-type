@@ -101,6 +101,7 @@ h1, h2, p {
   padding: .6rem 0;
   font-size: 2rem;
   font-weight: 600;
+  border-radius: var(--border-radius-5);
 }
 
 .start {
@@ -161,4 +162,5 @@ h1, h2, p {
   width: 25rem;
   padding: 1rem;
   font-size: 2rem;
+  border-radius: var(--border-radius-5);
 }

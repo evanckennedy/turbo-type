@@ -71,7 +71,7 @@ function setScoreObj() {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Game Timer                                           */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-let count = 30;
+let count = 100;
 let intervalID = null;
 
 function oneSecond() {

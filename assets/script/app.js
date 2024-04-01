@@ -68,7 +68,6 @@ function setScoreObj() {
   scores.push(scoreObj);
 }
 
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Game Timer                                           */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */

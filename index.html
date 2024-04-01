@@ -17,20 +17,34 @@
     <script src="./assets/script/app.js" type="module"></script>
   </head>
   <body>
-    <header class="flex container space-between">
-      <div class="center time-remaining-wrapper">
-        <span class="time-remaining">00</span>
-      </div>
-      <h1>TurboType</h1>
-      <div class="start-restart-wrapper">
-        <button class="start start-restart" type="button">Start</button>
-        <button class="hidden restart start-restart" type="button">Restart</button>
-      </div>
-    </header>
     <main>
-      <div class="container">
-        <section class="game-modal">
-          
+      <div class="container center">
+        <section class="game-modal flex gap-2">
+          <div class="game-header flex space-between">
+            <div class="leaderboard-wrapper center">
+              <i class="fa-solid fa-ranking-star"></i>
+            </div>
+            <div class="start-restart-wrapper">
+              <button class="start start-restart" type="button">Start</button>
+              <button class="hidden restart start-restart" type="button">Restart</button>
+            </div>
+          </div>
+          <div class="time-remaining-wrapper flex">
+            <div class="icon-and-time">
+              <i class="fa-regular fa-hourglass-half"></i>
+              <span class="time-remaining">00</span>
+            </div>
+            
+          </div>
+          <div class="random-word-wrapper">
+            <p>Watermelon</p>
+          </div>
+          <div class="hits-wrapper">
+            <p>Hits: <span class="hits">00</span></p>
+          </div>
+          <div class="input-wrapper">
+            <input class="user-guess" type="text" placeholder="word goes here" autocomplete="false">
+          </div>  
         </section>
       </div>
     </main>

@@ -32,12 +32,16 @@
   --blue: #2993ff;
   --white: #f5f5f6;
   --red: #ff6347;
+  --green: #419f22;
+  --magenta: #ae38d5;
+  --orange: #ff9500;
+  --cyan: #38d5ae;
   --border-radius-5: 5px;
 }
 
 body {
   background: var(--app-background-dark) url('../media/blue-retrowave.jpg') center / cover no-repeat;
-  /* background: var(--app-background-dark) url('../media/neon-retrowave.gif') center / cover no-repeat; */
+  background: var(--app-background-dark) url('../media/neon-retrowave.gif') center / cover no-repeat;
   min-height: 100svh;
   font-family: 'Noto Sans', 'Open Sans', arial, sans-serif;
 }
@@ -45,6 +49,7 @@ body {
 .container {
   width: min(100% - 30px, 1080px);
   margin-inline: auto;
+  min-height: 100svh;
 }
 
 .hidden {
@@ -56,50 +61,103 @@ h1, h2, p {
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/*  Header                                               */
+/*  Game Modal                                           */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-header {
+.game-modal {
+  flex-direction: column;
+  max-width: 600px;
   align-items: center;
+  background-color: var(--magenta);
+  border-radius: var(--border-radius-5);
+  padding: 2rem;
 }
 
-h1 {
-  font-size: 6rem;
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Game Header                                          */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.game-header {
+  align-items: center;
+  width: 100%;
+}
+
+.leaderboard-wrapper i {
+  color: var(--white);
+  font-size: 2rem;
 }
 
 .start-restart-wrapper {
   position: relative;
-  width: 11rem;
+  width: 9.5rem;
 }
 
 .start-restart {
   position: absolute;
   width: 100%;
-  left: 0;
+  left: 50%;
   top: 50%;
-  transform: translateY(-50%); 
+  transform: translate(-50%, -50%);
   color: var(--white);
-  padding: .9rem 0;
+  padding: .6rem 0;
   font-size: 2rem;
   font-weight: 600;
 }
 
 .start {
-  background-color: var(--blue);
+  background-color: var(--orange);
 }
 
 .restart {
   background-color: var(--red);
 }
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Game Modal Content                                   */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .time-remaining-wrapper {
-  width: 6rem;
-  height: 6rem;
-  background-color: var(--blue);
-  border-radius: 50%;
+  width: 12rem;
+  height: 12rem;
+/*   background-color: var(--blue);
+  border-radius: 50%; */
+  justify-content: center;
+  align-items: center;
 }
 
 .time-remaining {
   color: var(--white);
+  font-size: 9rem;
+}
+
+.icon-and-time {
+  position: relative; 
+}
+
+.icon-and-time i {
+  position: absolute;
+  top: -.5rem;
+  left: 50%; 
+  transform: translateX(-50%);
+  color: var(--white);
+  font-size: 2rem;
+}
+
+.hits-wrapper p {
+  font-size: 2rem;
   font-weight: 600;
-  font-size: 2.4rem;
+}
+
+.hits {
+  color: var(--cyan);
+}
+
+.random-word-wrapper p {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 5rem;
+}
+
+.user-guess {
+  text-align: center;
+  width: 25rem;
+  padding: 1rem;
+  font-size: 2rem;
 }

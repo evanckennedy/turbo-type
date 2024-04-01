@@ -13,16 +13,42 @@ console.log(originalWords);
 const start = utils.select('.start');
 const restart = utils.select('.restart');
 const timeRemaining = utils.select('.time-remaining');
-const hits = utils.select('.hits');
+const hitsDisplay = utils.select('.hits');
 const input = utils.select('.user-guess');
+const randomWordDisplay = utils.select('.random-word-wrapper p');
 
 const gameSound = new Audio('./assets/media/game-sound.mp3');
 const correctAnswer = new Audio('./assets/media/correct-answer.mp3');
+
+let count = 100;
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Random Words                                         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 let words = [...originalWords];
+let hits = 0;
+function guessWord() {
+  let randomWord = selectWord();
+  randomWordDisplay.textContent = randomWord;
+
+
+  utils.listen('input', input, () => compareWords(randomWord));
+}
+
+function compareWords(currentRandomWord) {
+  let userInput = input.value.toLowerCase();
+  let word = currentRandomWord.toLowerCase();
+  if (userInput === word) {
+    hits++;
+    hitsDisplay.innerText = hits;
+    clearInput();
+    guessWord();
+  }
+}
+
+function clearInput() {
+  input.value = '';
+}
 
 function selectWord() {
 let index = Math.floor(Math.random() * words.length);
@@ -35,15 +61,11 @@ function resetWords() {
 words = [...originalWords];
 }
 
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Game Timer                                           */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-let count = 100;
 let intervalID = null;
-
-function oneSecond() {
-  return 1000;
-}
 
 function startCount() {
   intervalID = setInterval(() => {
@@ -53,43 +75,52 @@ function startCount() {
     if (count <= 0) {
       clearInterval(intervalID);
     }
-  }, oneSecond());
+  }, 1000);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Start Game                                           */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-function hideStart() {
-  start.classList.add('hidden');
-  restart.classList.remove('hidden');
-}
-
-function hideRestart() {
-  restart.classList.add('hidden');
-  start.classList.remove('hidden')
-}
-
 function startGame() {
   startCount();
   gameSound.play();
   input.focus();
   hideStart();
+  guessWord();
 }
+
+function hideStart() {
+  start.classList.add('hidden');
+  restart.classList.remove('hidden');
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  End game                                             */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function endGame() {
+  gameSound.pause();
+  gameSound.currentTime = 0; 
+  
+}
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Restart Game                                         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function restartGame() {
   resetWords();
+  guessWord();
   count = 100;
   gameSound.currentTime = 0;
 }
+
+/* setInterval(() => console.log(words), 1000); */
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Event Listeners                                      */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 utils.listen('click', start, startGame);
 utils.listen('click', restart, restartGame);
-utils.listen('input', document, )
+
 
 
 

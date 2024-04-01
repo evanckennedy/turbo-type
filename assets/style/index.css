@@ -66,7 +66,7 @@ h1, h2, p {
 .game-modal {
   flex-direction: column;
   width: 100%;
-  max-width: 60rem;
+  max-width: 50rem;
   align-items: center;
   background-color: var(--magenta);
   border-radius: var(--border-radius-5);
@@ -159,4 +159,5 @@ h1, h2, p {
   padding: 1rem;
   font-size: 2rem;
   border-radius: var(--border-radius-5);
+  color: var(--magenta);
 }

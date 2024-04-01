@@ -54,3 +54,16 @@ return word;
 function resetWords() {
 words = [...orignalWords];
 }
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Score                                                */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function setScoreObj() {
+  let score = hitNum;
+  let date = new Date().toDateString();
+  let percentage = ((score / words.length) * 100).toFixed(1);
+
+  let scoreObj = new Score(date, score, percentage);
+
+  scores.push(scoreObj);
+}

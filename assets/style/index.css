@@ -1,0 +1,105 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Utility Classes                                      */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.flex {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Base                                                 */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+:root {
+  --app-background-dark: rgb(24, 23, 32);
+  --secondary-backround: #272a31;
+  --blue: #2993ff;
+  --white: #f5f5f6;
+  --red: #ff6347;
+  --border-radius-5: 5px;
+}
+
+body {
+  background: var(--app-background-dark) url('../media/blue-retrowave.jpg') center / cover no-repeat;
+  /* background: var(--app-background-dark) url('../media/neon-retrowave.gif') center / cover no-repeat; */
+  min-height: 100svh;
+  font-family: 'Noto Sans', 'Open Sans', arial, sans-serif;
+}
+
+.container {
+  width: min(100% - 30px, 1080px);
+  margin-inline: auto;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+h1, h2, p {
+  color: var(--white);
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Header                                               */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+header {
+  align-items: center;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+.start-restart-wrapper {
+  position: relative;
+  width: 11rem;
+}
+
+.start-restart {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%); 
+  color: var(--white);
+  padding: .9rem 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.start {
+  background-color: var(--blue);
+}
+
+.restart {
+  background-color: var(--red);
+}
+
+.time-remaining-wrapper {
+  width: 6rem;
+  height: 6rem;
+  background-color: var(--blue);
+  border-radius: 50%;
+}
+
+.time-remaining {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 2.4rem;
+}

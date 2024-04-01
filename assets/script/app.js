@@ -67,3 +67,25 @@ function setScoreObj() {
 
   scores.push(scoreObj);
 }
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Game Timer                                           */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+let count = 30;
+let intervalID = null;
+
+function oneSecond() {
+  return 1000;
+}
+
+function startCount() {
+  intervalID = setInterval(() => {
+    count --;
+    timeRemaining.textContent = count;
+
+    if (count <= 0) {
+      clearInterval(intervalID);
+    }
+  }, oneSecond());
+}

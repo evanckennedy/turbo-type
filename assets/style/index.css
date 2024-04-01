@@ -151,6 +151,7 @@ h1, h2, p {
   text-transform: uppercase;
   font-weight: 500;
   font-size: 5rem;
+  user-select: none;
 }
 
 .user-guess {

@@ -89,3 +89,10 @@ function startCount() {
     }
   }, oneSecond());
 }
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Start Game                                           */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function startGame() {
+  startCount()
+}

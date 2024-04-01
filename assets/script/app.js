@@ -82,6 +82,7 @@ function startCount() {
 /*  Start Game                                           */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function startGame() {
+  clearInput();
   startCount();
   gameSound.play();
   input.focus();
@@ -109,8 +110,11 @@ function endGame() {
 function restartGame() {
   resetWords();
   guessWord();
+  hits = 0;
+  hitsDisplay.innerText = hits;
   count = 100;
   gameSound.currentTime = 0;
+  input.focus();
 }
 
 /* setInterval(() => console.log(words), 1000); */

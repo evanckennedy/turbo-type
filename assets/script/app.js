@@ -86,6 +86,7 @@ function startCount() {
 /*  Start Game                                           */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function startGame() {
+  timeRemaining.innerText = '99';
   start.classList.add('hidden');
   resetWords();
   toggleRandomWordDisplay();

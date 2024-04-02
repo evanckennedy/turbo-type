@@ -54,16 +54,16 @@ function clearInput() {
 }
 
 function selectWord() {
-let index = Math.floor(Math.random() * words.length);
-let word = words[index];
-words.splice(index, 1);
-return word;
+  if (words.length === 0) {
+    endGame();
+    return;
+  }
+  
+  let index = Math.floor(Math.random() * words.length);
+  let word = words[index];
+  words.splice(index, 1);
+  return word;
 }
-
-function resetWords() {
-words = [...originalWords];
-}
-
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Game Timer                                           */
@@ -179,10 +179,11 @@ function restartGame() {
     enableInput();
     input.focus();
   });
-  
 }
 
-
+function resetWords() {
+  words = [...originalWords];
+  }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Event Listeners                                      */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -192,7 +193,7 @@ utils.listen('click', restart, restartGame);
 
 
 
-/* Use later */
+/* Store score (Later) */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Score                                                */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */

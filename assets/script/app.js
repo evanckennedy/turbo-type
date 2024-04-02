@@ -15,6 +15,7 @@ const timeRemaining = utils.select('.time-remaining');
 const hitsDisplay = utils.select('.hits');
 const input = utils.select('.user-guess');
 const randomWordDisplay = utils.select('.random-word-wrapper p');
+const randomWordWrapper = utils.select('.random-word-wrapper');
 
 const gameSound = new Audio('./assets/media/game-sound.mp3');
 const correctAnswer = new Audio('./assets/media/correct-answer.mp3');
@@ -85,6 +86,7 @@ function startCount() {
 /*  Start Game                                           */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function startGame() {
+  toggleRandomWordDisplay();
   startCountdown(() => {
     clearInput();
     startCount();
@@ -125,6 +127,10 @@ function hideStart() {
   restart.classList.remove('hidden');
 }
 
+function toggleRandomWordDisplay() {
+  randomWordWrapper.classList.toggle('hidden');
+}
+
 function enableInput() {
   input.classList.remove('disable-input');
 }
@@ -136,6 +142,7 @@ function endGame() {
   gameOver.play();
   gameSound.pause();
   gameSound.currentTime = 0;
+  toggleRandomWordDisplay();
   hideRestart();
   disableInput();
   hits = 0;

@@ -155,6 +155,10 @@ h1, h2, p {
   font-weight: 600;
 }
 
+.random-word-wrapper {
+  min-height: 8rem;
+}
+
 .random-word-wrapper p {
   text-transform: uppercase;
   font-weight: 500;

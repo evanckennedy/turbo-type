@@ -122,8 +122,6 @@ h1, h2, p {
 .time-remaining-wrapper {
   width: 12rem;
   height: 12rem;
-/*   background-color: var(--blue);
-  border-radius: 50%; */
   justify-content: center;
   align-items: center;
 }

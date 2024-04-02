@@ -72,11 +72,12 @@ h1, h2, p {
   width: 100%;
   max-width: 50rem;
   align-items: center;
-  background-color: rgba(174, 56, 213, 0.5);
+  background-color: rgba(177, 81, 209, 0.5);
   backdrop-filter: blur(5px);
   border-radius: var(--border-radius-5);
   padding: 4rem;
-}
+  box-shadow: -3px -3px 6px 0px rgba(255, 255, 255, 0.5), 3px 3px 6px 0px rgba(0, 0, 0, 0.651);
+  }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Game Header                                          */

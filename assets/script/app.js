@@ -87,6 +87,7 @@ function startCount() {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function startGame() {
   timeRemaining.innerText = '99';
+  hitsDisplay.innerText = '0';
   start.classList.add('hidden');
   resetWords();
   toggleRandomWordDisplay();
@@ -169,6 +170,7 @@ function disableInput() {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function restartGame() {
   timeRemaining.innerText = '99';
+  hitsDisplay.innerText = '0';
   restart.classList.add('hidden')
   gameSound.pause();
   gameSound.currentTime = 0;

@@ -58,7 +58,7 @@ function selectWord() {
     endGame();
     return;
   }
-  
+
   let index = Math.floor(Math.random() * words.length);
   let word = words[index];
   words.splice(index, 1);
@@ -86,6 +86,7 @@ function startCount() {
 /*  Start Game                                           */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function startGame() {
+  resetWords();
   toggleRandomWordDisplay();
   startCountdown(() => {
     clearInput();
@@ -139,6 +140,7 @@ function enableInput() {
 /*  End game                                             */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function endGame() {
+  stopCount();
   gameOver.play();
   gameSound.pause();
   gameSound.currentTime = 0;

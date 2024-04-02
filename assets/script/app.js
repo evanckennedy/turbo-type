@@ -141,6 +141,7 @@ function enableInput() {
 /*  End game                                             */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function endGame() {
+  clearInput();
   stopCount();
   gameOver.play();
   gameSound.pause();

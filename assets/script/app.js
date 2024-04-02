@@ -20,7 +20,7 @@ const randomWordDisplay = utils.select('.random-word-wrapper p');
 const gameSound = new Audio('./assets/media/game-sound.mp3');
 const correctAnswer = new Audio('./assets/media/correct-answer.mp3');
 
-let count = 100;
+let count = 99;
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Random Words                                         */
@@ -40,6 +40,7 @@ function compareWords(currentRandomWord) {
   let word = currentRandomWord.toLowerCase();
   if (userInput === word) {
     hits++;
+    correctAnswer.play();
     hitsDisplay.innerText = hits;
     clearInput();
     guessWord();
@@ -74,6 +75,7 @@ function startCount() {
 
     if (count <= 0) {
       clearInterval(intervalID);
+      endGame();
     }
   }, 1000);
 }
@@ -87,6 +89,7 @@ function startGame() {
   gameSound.play();
   input.focus();
   hideStart();
+  hitsDisplay.innerText = hits;
   guessWord();
 }
 
@@ -94,14 +97,20 @@ function hideStart() {
   start.classList.add('hidden');
   restart.classList.remove('hidden');
 }
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  End game                                             */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function endGame() {
   gameSound.pause();
-  gameSound.currentTime = 0; 
-  
+  gameSound.currentTime = 0;
+  hideRestart();
+  hits = 0;
+  count = 99;
+}
+
+function hideRestart() {
+  restart.classList.add('hidden');
+  start.classList.remove('hidden');
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -112,12 +121,11 @@ function restartGame() {
   guessWord();
   hits = 0;
   hitsDisplay.innerText = hits;
-  count = 100;
+  count = 99;
   gameSound.currentTime = 0;
   input.focus();
 }
 
-/* setInterval(() => console.log(words), 1000); */
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Event Listeners                                      */
@@ -136,7 +144,7 @@ let scores = [];
 function setScoreObj() {
   let score = hitNum;
   let date = new Date().toDateString();
-  let percentage = ((score / words.length) * 100).toFixed(1);
+  let percentage = ((score / originalWords.length) * 100).toFixed(2);
 
   let scoreObj = new Score(date, score, percentage);
 

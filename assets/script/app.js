@@ -94,6 +94,23 @@ function startGame() {
   guessWord();
 }
 
+function startCountdown(callback) {
+  let countdownNumber = 3;
+
+  randomWordDisplay.textContent = countdownNumber;
+
+  let countdownInterval = setInterval(() => {
+    countdownNumber--;
+    randomWordDisplay.textContent = countdownNumber;
+
+    if (countdownNumber <= 0) {
+      clearInterval(countdownInterval);
+      randomWordDisplay.textContent = '';
+      callback();
+    }
+  }, 1000);
+}
+
 function hideStart() {
   start.classList.add('hidden');
   restart.classList.remove('hidden');

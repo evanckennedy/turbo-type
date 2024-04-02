@@ -159,6 +159,7 @@ function restartGame() {
   gameSound.pause();
   gameSound.currentTime = 0;
   stopCount();
+  disableInput();
   startCountdown(() => {
     resetWords();
     guessWord();
@@ -167,6 +168,8 @@ function restartGame() {
     gameSound.play();
     count = 99;
     startCount();
+    input.value = '';
+    enableInput();
     input.focus();
   });
   

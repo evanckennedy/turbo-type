@@ -167,6 +167,7 @@ function disableInput() {
 /*  Restart Game                                         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function restartGame() {
+  timeRemaining.innerText = '99';
   restart.classList.add('hidden')
   gameSound.pause();
   gameSound.currentTime = 0;

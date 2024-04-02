@@ -19,6 +19,7 @@ const randomWordDisplay = utils.select('.random-word-wrapper p');
 const gameSound = new Audio('./assets/media/game-sound.mp3');
 const correctAnswer = new Audio('./assets/media/correct-answer.mp3');
 const gameOver = new Audio('./assets/media/game-over.mp3');
+const countdown = new Audio('./assets/media/countdown.mp3')
 
 let count = 99;
 
@@ -84,20 +85,24 @@ function startCount() {
 /*  Start Game                                           */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function startGame() {
-  clearInput();
-  startCount();
-  gameSound.play();
-  input.focus();
-  hideStart();
-  enableInput();
-  hitsDisplay.innerText = hits;
-  guessWord();
+  startCountdown(() => {
+    clearInput();
+    startCount();
+    gameSound.play();
+    input.focus();
+    hideStart();
+    enableInput();
+    hitsDisplay.innerText = hits;
+    guessWord();
+  });
+  
 }
 
 function startCountdown(callback) {
   let countdownNumber = 3;
 
   randomWordDisplay.textContent = countdownNumber;
+  countdown.play();
 
   let countdownInterval = setInterval(() => {
     countdownNumber--;

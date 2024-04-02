@@ -21,6 +21,10 @@
 .gap-2 {
   gap: 2rem;
 }
+/* 
+.disable-input {
+  pointer-events: none;
+} */
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Base                                                 */

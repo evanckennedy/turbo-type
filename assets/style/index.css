@@ -112,10 +112,20 @@ h1, h2, p {
 
 .start {
   background-color: var(--orange);
+  transition: background-color 0.15s ease-in-out;
+}
+
+.start:hover {
+  background-color: #f58c00;
 }
 
 .restart {
   background-color: var(--red);
+  transition: background-color 0.15s ease-in-out;
+}
+
+.restart:hover {
+  background-color: #f25637
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */

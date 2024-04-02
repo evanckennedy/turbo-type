@@ -19,6 +19,7 @@ const randomWordDisplay = utils.select('.random-word-wrapper p');
 
 const gameSound = new Audio('./assets/media/game-sound.mp3');
 const correctAnswer = new Audio('./assets/media/correct-answer.mp3');
+const gameOver = new Audio('./assets/media/game-over.mp3');
 
 let count = 99;
 
@@ -101,6 +102,7 @@ function hideStart() {
 /*  End game                                             */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function endGame() {
+  gameOver.play();
   gameSound.pause();
   gameSound.currentTime = 0;
   hideRestart();

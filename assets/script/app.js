@@ -38,7 +38,7 @@ function guessWord() {
 }
 
 function compareWords(currentRandomWord) {
-  let userInput = input.value.toLowerCase();
+  let userInput = input.value.toLowerCase().trim();
   let word = currentRandomWord.toLowerCase();
   if (userInput === word) {
     hits++;

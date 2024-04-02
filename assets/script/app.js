@@ -86,6 +86,7 @@ function startCount() {
 /*  Start Game                                           */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function startGame() {
+  start.classList.add('hidden');
   resetWords();
   toggleRandomWordDisplay();
   startCountdown(() => {
@@ -165,11 +166,13 @@ function disableInput() {
 /*  Restart Game                                         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function restartGame() {
+  restart.classList.add('hidden')
   gameSound.pause();
   gameSound.currentTime = 0;
   stopCount();
   disableInput();
   startCountdown(() => {
+    restart.classList.remove('hidden');
     resetWords();
     guessWord();
     hits = 0;

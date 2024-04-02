@@ -89,6 +89,7 @@ function startGame() {
   gameSound.play();
   input.focus();
   hideStart();
+  enableInput();
   hitsDisplay.innerText = hits;
   guessWord();
 }
@@ -97,6 +98,11 @@ function hideStart() {
   start.classList.add('hidden');
   restart.classList.remove('hidden');
 }
+
+function enableInput() {
+  input.classList.remove('disable-input');
+}
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  End game                                             */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -105,6 +111,7 @@ function endGame() {
   gameSound.pause();
   gameSound.currentTime = 0;
   hideRestart();
+  disableInput();
   hits = 0;
   count = 99;
 }
@@ -112,6 +119,11 @@ function endGame() {
 function hideRestart() {
   restart.classList.add('hidden');
   start.classList.remove('hidden');
+}
+
+function disableInput() {
+  input.classList.add('disable-input');
+  input.blur();
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */

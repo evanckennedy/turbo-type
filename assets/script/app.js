@@ -5,7 +5,6 @@
 import * as utils from './utils.js';
 import Score from './Score.js';
 import originalWords from './words.js';
-console.log(originalWords);
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Selectors, Declaration                               */

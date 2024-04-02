@@ -146,6 +146,10 @@ h1, h2, p {
   font-size: 2rem;
 }
 
+.hits-wrapper {
+  margin-bottom: 1.7rem;
+}
+
 .hits-wrapper p {
   font-size: 2rem;
   font-weight: 600;

@@ -116,6 +116,10 @@ function startCountdown(callback) {
   }, 1000);
 }
 
+function stopCount() {
+  clearInterval(intervalID);
+}
+
 function hideStart() {
   start.classList.add('hidden');
   restart.classList.remove('hidden');
@@ -152,13 +156,20 @@ function disableInput() {
 /*  Restart Game                                         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function restartGame() {
-  resetWords();
-  guessWord();
-  hits = 0;
-  hitsDisplay.innerText = hits;
-  count = 99;
+  gameSound.pause();
   gameSound.currentTime = 0;
-  input.focus();
+  stopCount();
+  startCountdown(() => {
+    resetWords();
+    guessWord();
+    hits = 0;
+    hitsDisplay.innerText = hits;
+    gameSound.play();
+    count = 99;
+    startCount();
+    input.focus();
+  });
+  
 }
 
 

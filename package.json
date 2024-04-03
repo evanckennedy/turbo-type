@@ -1,0 +1,15 @@
+{
+  "name": "turbo-type",
+  "version": "1.0.0",
+  "description": "TurboType is a fast-paced typing game designed to improve your typing speed and accuracy. Test your skills by typing out random words as quickly as possible!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

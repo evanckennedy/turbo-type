@@ -18,9 +18,13 @@ const randomWordDisplay = utils.select('.random-word-wrapper p');
 const randomWordWrapper = utils.select('.random-word-wrapper');
 
 const gameSound = new Audio('./assets/media/game-sound.mp3');
+gameSound.volume = 0.45;
 const correctAnswer = new Audio('./assets/media/correct-answer.mp3');
+correctAnswer.volume = 0.25;
 const gameOver = new Audio('./assets/media/game-over.mp3');
-const countdown = new Audio('./assets/media/countdown.mp3')
+gameOver.volume = 0.6;
+const countdown = new Audio('./assets/media/countdown.mp3');
+countdown.volume = 0.55;
 
 let count = 99;
 

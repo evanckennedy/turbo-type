@@ -143,6 +143,7 @@ function enableInput() {
 /*  End game                                             */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function endGame() {
+  setScoreObj();
   clearInput();
   stopCount();
   gameOver.play();
@@ -202,15 +203,14 @@ utils.listen('click', restart, restartGame);
 
 
 
-
-/* Store score (Later) */
+/* Get Score */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Score                                                */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 let scores = [];
 function setScoreObj() {
-  let score = hitNum;
-  let date = new Date().toDateString();
+  let score = hitsDisplay.innerText;
+  let date = getDate();
   let percentage = ((score / originalWords.length) * 100).toFixed(2);
 
   let scoreObj = new Score(date, score, percentage);
@@ -223,9 +223,9 @@ function setScoreObj() {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function getDate() {
   const options = {
-    year: numeric,
-    month: short,
-    day: 2-digit
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit'
   }
 
   return new Date().toLocaleDateString('en-ca', options);

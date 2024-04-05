@@ -180,6 +180,7 @@ function resetWords() {
 /*  End game                                             */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function endGame() {
+  pushScore(getScore())
   clearInput();
   stopCount();
   gameOver.play();
@@ -214,9 +215,25 @@ utils.listen('click', restart, restartGame);
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 let highScores = [];
 
+// Call getTopNine when the page loads
+getTopNine();
+
 function pushScore(score) {
   highScores.push(score);
   sortScores();
+  localStorage.setItem('highScores', JSON.stringify(highScores));
+  getTopNine();
+}
+
+function getTopNine() {
+  // If 'highScores' exists in localStorage, retrieve and parse it into an array
+  if (localStorage.getItem('highScores')) {
+    highScores = JSON.parse(localStorage.getItem('highScores'));
+  }
+
+  while (highScores.length > 9) {
+    highScores.pop();
+  }
 }
 
 function sortScores() {

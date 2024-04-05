@@ -18,7 +18,8 @@ const randomWordDisplay = utils.select('.random-word-wrapper p');
 const randomWordWrapper = utils.select('.random-word-wrapper');
 const leaderboardDisplay = utils.select('.leaderboard-container');
 const openLeaderboard = utils.select('.leaderboard-wrapper i');
-const closeLeaderboard = utils.select('.close-leaderboard-wrapper i')
+const closeLeaderboard = utils.select('.close-leaderboard-wrapper i');
+const scoresContainer = utils.select('.scores-container');
 
 const gameSound = new Audio('./assets/media/game-sound.mp3');
 gameSound.volume = 0.45;
@@ -228,6 +229,8 @@ function getTopNine() {
   while (highScores.length > 9) {
     highScores.pop();
   }
+
+  displayScores();
 }
 
 function sortScores() {
@@ -269,6 +272,24 @@ function getPercentage() {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Leaderboard                                          */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function displayScores() {
+  scoresContainer.innerHTML = '';
+
+  highScores.forEach((score, index) => {
+    let li = document.createElement('li');
+
+    li.innerHTML = `
+    <li class="flex space-between">
+      <p>#${index + 1}</p>
+      <p>${score.hits} hits</p>
+      <p>${score.date}</p>
+    </li>
+    `;
+
+    scoresContainer.append(li);
+  })
+}
+
 function showLeaderboard() {
   leaderboardDisplay.classList.remove('display-none');
 }

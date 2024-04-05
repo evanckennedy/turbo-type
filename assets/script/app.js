@@ -114,6 +114,7 @@ function startCountdown(callback) {
   let countdownNumber = 3;
 
   randomWordDisplay.textContent = countdownNumber;
+  countdown.currentTime = 0;
   countdown.play();
 
   let countdownInterval = setInterval(() => {

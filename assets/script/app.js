@@ -90,7 +90,9 @@ function startCount() {
 /*  Start Game                                           */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function startGame() {
-  timeRemaining.innerText = '99';
+  count = 99;
+  hits = 0;
+  timeRemaining.innerText = count;
   hitsDisplay.innerText = '0';
   start.classList.add('hidden');
   resetWords();
@@ -156,8 +158,6 @@ function endGame() {
   toggleRandomWordDisplay();
   hideRestart();
   disableInput();
-  hits = 0;
-  count = 99;
 }
 
 function hideRestart() {
@@ -174,7 +174,8 @@ function disableInput() {
 /*  Restart Game                                         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function restartGame() {
-  timeRemaining.innerText = '99';
+  count = 99;
+  timeRemaining.innerText = count;
   hitsDisplay.innerText = '0';
   restart.classList.add('hidden')
   gameSound.pause();
@@ -188,7 +189,6 @@ function restartGame() {
     hits = 0;
     hitsDisplay.innerText = hits;
     gameSound.play();
-    count = 99;
     startCount();
     input.value = '';
     enableInput();

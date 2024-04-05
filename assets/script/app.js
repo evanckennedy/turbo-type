@@ -16,6 +16,9 @@ const hitsDisplay = utils.select('.hits');
 const input = utils.select('.user-guess');
 const randomWordDisplay = utils.select('.random-word-wrapper p');
 const randomWordWrapper = utils.select('.random-word-wrapper');
+const leaderboardDisplay = utils.select('.leaderboard-container');
+const openLeaderboard = utils.select('.leaderboard-wrapper i');
+const closeLeaderboard = utils.select('.close-leaderboard-wrapper i')
 
 const gameSound = new Audio('./assets/media/game-sound.mp3');
 gameSound.volume = 0.45;
@@ -202,15 +205,6 @@ function disableInput() {
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/*  Event Listeners                                      */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-utils.listen('click', start, startGame);
-utils.listen('click', restart, restartGame);
-
-
-
-/* Get Score */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Score                                                */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 let highScores = [];
@@ -272,3 +266,21 @@ function getPercentage() {
   return ((hits / originalWords.length) * 100).toFixed(2);
 }
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Leaderboard                                          */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function showLeaderboard() {
+  leaderboardDisplay.classList.remove('display-none');
+}
+
+function removeLeaderboard() {
+  leaderboardDisplay.classList.add('display-none');
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Event Listeners                                      */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+utils.listen('click', start, startGame);
+utils.listen('click', restart, restartGame);
+utils.listen('click', openLeaderboard, showLeaderboard);
+utils.listen('click', closeLeaderboard, removeLeaderboard);

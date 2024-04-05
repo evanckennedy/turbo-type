@@ -38,6 +38,7 @@
   --red: #ff6347;
   --green: #419f22;
   --magenta: #ae38d5;
+  --light-orange: #ffedd5;
   --orange: #ff9500;
   --cyan: #38d5ae;
   --border-radius-5: 5px;
@@ -58,6 +59,10 @@ body {
 
 .hidden {
   visibility: hidden;
+}
+
+.display-none {
+  display: none;
 }
 
 h1, h2, p {
@@ -90,6 +95,12 @@ h1, h2, p {
 .leaderboard-wrapper i {
   color: var(--white);
   font-size: 3rem;
+  cursor: pointer;
+  transition: color 0.15s ease-in-out;
+}
+
+.leaderboard-wrapper i:hover {
+  color: var(--light-orange)
 }
 
 .start-restart-wrapper {
@@ -199,8 +210,8 @@ h1, h2, p {
   top: 0;
   left: 0;
   bottom: 0;
-  padding: 2rem;
-  width: 25rem;
+  padding: 3rem;
+  width: 32rem;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
 }
@@ -208,16 +219,29 @@ h1, h2, p {
 .leaderboard-container h2 {
   text-align: center;
   text-transform: uppercase;
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
 }
 
 ul li p {
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .scores-container {
   flex-direction: column;
   gap: .4rem;
+}
+
+.close-leaderboard-wrapper i {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: var(--white);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.15s ease-in-out;
+}
+
+.close-leaderboard-wrapper i:hover {
+  color: var(--light-orange)
 }

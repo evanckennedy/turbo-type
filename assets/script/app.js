@@ -27,12 +27,12 @@ const countdown = new Audio('./assets/media/countdown.mp3');
 countdown.volume = 0.55;
 
 let count = 10;
+let hits = 0;
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Random Words                                         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 let words = [...originalWords];
-let hits = 0;
 function guessWord() {
   let randomWord = selectWord();
   randomWordDisplay.textContent = randomWord;
@@ -213,19 +213,21 @@ utils.listen('click', restart, restartGame);
 /*  Score                                                */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 let scores = [];
-function setScoreObj() {
-  let score = hitsDisplay.innerText;
-  let date = getDate();
-  let percentage = ((score / originalWords.length) * 100).toFixed(2);
 
-  let scoreObj = new Score(date, score, percentage);
+function getScore() {
+  const score = {
+    hits: getHits(),
+    perc: getPercentage(getHits()),
+    date: getDate()
+  }
 
-  scores.push(scoreObj);
+  return score;
 }
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/*  Date                                                 */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* push score to scores */
+
+
+
 function getDate() {
   const options = {
     year: 'numeric',
@@ -235,3 +237,12 @@ function getDate() {
 
   return new Date().toLocaleDateString('en-ca', options);
 }
+
+function getHits() {
+  return hits;
+}
+
+function getPercentage(hits) {
+  return ((hits / originalWords.length) * 100).toFixed(2);
+}
+

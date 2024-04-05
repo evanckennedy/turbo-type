@@ -277,13 +277,13 @@ function displayScores() {
 
   highScores.forEach((score, index) => {
     let li = document.createElement('li');
+    li.classList.add('flex', 'space-between');
 
-    li.innerHTML = `
-    <li class="flex space-between">
-      <p>#${index + 1}</p>
-      <p>${score.hits} hits</p>
-      <p>${score.date}</p>
-    </li>
+    li.innerHTML = 
+    `
+    <p>#${index + 1}</p>
+    <p>${score.hits} hits</p>
+    <p>${score.date}</p>
     `;
 
     scoresContainer.append(li);

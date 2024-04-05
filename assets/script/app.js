@@ -212,7 +212,11 @@ utils.listen('click', restart, restartGame);
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Score                                                */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-let scores = [];
+let highScores = [];
+
+function storeScore(score) {
+  return highScores.push(score);
+}
 
 function getScore() {
   const score = {

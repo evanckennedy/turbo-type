@@ -221,9 +221,11 @@ h1, h2, p {
   text-transform: uppercase;
   font-size: 2rem;
   margin-bottom: 2rem;
+  font-weight: 600;
+  color: var(--cyan);
 }
 
-ul li p {
+.scores-container li p {
   font-weight: 500;
 }
 

@@ -147,31 +147,6 @@ function enableInput() {
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/*  End game                                             */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-function endGame() {
-  setScoreObj();
-  clearInput();
-  stopCount();
-  gameOver.play();
-  gameSound.pause();
-  gameSound.currentTime = 0;
-  toggleRandomWordDisplay();
-  hideRestart();
-  disableInput();
-}
-
-function hideRestart() {
-  restart.classList.add('hidden');
-  start.classList.remove('hidden');
-}
-
-function disableInput() {
-  input.classList.add('disable-input');
-  input.blur();
-}
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Restart Game                                         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function restartGame() {
@@ -199,7 +174,32 @@ function restartGame() {
 
 function resetWords() {
   words = [...originalWords];
-  }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  End game                                             */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function endGame() {
+  clearInput();
+  stopCount();
+  gameOver.play();
+  gameSound.pause();
+  gameSound.currentTime = 0;
+  toggleRandomWordDisplay();
+  hideRestart();
+  disableInput();
+}
+
+function hideRestart() {
+  restart.classList.add('hidden');
+  start.classList.remove('hidden');
+}
+
+function disableInput() {
+  input.classList.add('disable-input');
+  input.blur();
+}
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Event Listeners                                      */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -214,8 +214,13 @@ utils.listen('click', restart, restartGame);
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 let highScores = [];
 
-function storeScore(score) {
-  return highScores.push(score);
+function pushScore(score) {
+  highScores.push(score);
+  sortScores();
+}
+
+function sortScores() {
+  highScores.sort((a, b) => b.hits - a.hits);
 }
 
 function getScore() {
@@ -228,10 +233,6 @@ function getScore() {
   return score;
 }
 
-/* push score to scores */
-
-
-
 function getDate() {
   const options = {
     year: 'numeric',
@@ -242,11 +243,15 @@ function getDate() {
   return new Date().toLocaleDateString('en-ca', options);
 }
 
-function getHits() {
+/* function getHits() {
   return hits;
+} */
+
+function getHits() {
+  return hits < 10 ? String(hits).padStart(2, '0') : String(hits);
 }
 
-function getPercentage(hits) {
+function getPercentage() {
   return ((hits / originalWords.length) * 100).toFixed(2);
 }
 

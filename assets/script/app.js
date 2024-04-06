@@ -100,6 +100,7 @@ function startGame() {
   hitsDisplay.innerText = '0';
   start.classList.add('hidden');
   openLeaderboard.classList.add('disabled');
+  removeLeaderboard();
   resetWords();
   toggleRandomWordDisplay();
   startCountdown(() => {

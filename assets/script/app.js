@@ -39,7 +39,7 @@ let hits = 0;
 let words = [...originalWords];
 function guessWord() {
   let randomWord = selectWord();
-  randomWordDisplay.innerHTML = ''; // clear the previous word
+  randomWordDisplay.innerHTML = '';
 
   // create a new span for each letter in randomWord
   for (let letter of randomWord) {
@@ -279,10 +279,6 @@ function getDate() {
 
   return new Date().toLocaleDateString('en-ca', options);
 }
-
-/* function getHits() {
-  return hits;
-} */
 
 function getHits() {
   return hits < 10 ? String(hits).padStart(2, '0') : String(hits);

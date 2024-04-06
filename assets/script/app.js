@@ -99,6 +99,7 @@ function startGame() {
   timeRemaining.innerText = count;
   hitsDisplay.innerText = '0';
   start.classList.add('hidden');
+  openLeaderboard.classList.add('disabled');
   resetWords();
   toggleRandomWordDisplay();
   startCountdown(() => {
@@ -184,7 +185,7 @@ function resetWords() {
 /*  End game                                             */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function endGame() {
-  pushScore(getScore())
+  pushScore(getScore());
   clearInput();
   stopCount();
   gameOver.play();
@@ -193,6 +194,7 @@ function endGame() {
   toggleRandomWordDisplay();
   hideRestart();
   disableInput();
+  openLeaderboard.classList.remove('disabled');
 }
 
 function hideRestart() {
@@ -303,5 +305,9 @@ function removeLeaderboard() {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 utils.listen('click', start, startGame);
 utils.listen('click', restart, restartGame);
-utils.listen('click', openLeaderboard, showLeaderboard);
+utils.listen('click', openLeaderboard, () => {
+  if (!openLeaderboard.classList.contains('disabled')) {
+    showLeaderboard();
+  }
+});
 utils.listen('click', closeLeaderboard, removeLeaderboard);

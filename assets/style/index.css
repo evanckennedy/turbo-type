@@ -65,6 +65,13 @@ body {
   display: none;
 }
 
+.disabled {
+  color: #a9a9a9 !important;
+  cursor: default;
+  pointer-events: none;
+  transition: none;
+}
+
 h1, h2, p {
   color: var(--white);
 }

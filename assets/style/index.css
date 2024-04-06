@@ -41,6 +41,7 @@
   --light-orange: #ffedd5;
   --orange: #ff9500;
   --cyan: #38d5ae;
+  --grey: #a9a9a9; 
   --border-radius-5: 5px;
 }
 
@@ -66,7 +67,7 @@ body {
 }
 
 .disabled {
-  color: #a9a9a9 !important;
+  color: var(--grey) !important;
   cursor: default;
   pointer-events: none;
   transition: none;

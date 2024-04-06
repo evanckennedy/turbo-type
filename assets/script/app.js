@@ -39,8 +39,14 @@ let hits = 0;
 let words = [...originalWords];
 function guessWord() {
   let randomWord = selectWord();
-  randomWordDisplay.textContent = randomWord;
+  randomWordDisplay.innerHTML = ''; // clear the previous word
 
+  // create a new span for each letter in randomWord
+  for (let letter of randomWord) {
+    let span = document.createElement('span');
+    span.textContent = letter;
+    randomWordDisplay.appendChild(span);
+  }
 
   utils.listen('input', input, () => compareWords(randomWord));
 }
@@ -48,6 +54,20 @@ function guessWord() {
 function compareWords(currentRandomWord) {
   let userInput = input.value.toLowerCase().trim();
   let word = currentRandomWord.toLowerCase();
+
+  // reset the color of all spans
+  for (let span of randomWordDisplay.children) {
+    span.style.color = 'var(--white)';
+  }
+
+  // compare each letter in userInput with the corresponding letter in word
+  for (let i = 0; i < userInput.length; i++) {
+    if (userInput[i] === word[i]) {
+      // if they match, change the color of the corresponding span
+      randomWordDisplay.children[i].style.color = 'var(--cyan)';
+    }
+  }
+
   if (userInput === word) {
     hits++;
     correctAnswer.play();

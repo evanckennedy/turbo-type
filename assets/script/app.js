@@ -294,19 +294,26 @@ function getPercentage() {
 function displayScores() {
   scoresContainer.innerHTML = '';
 
-  highScores.forEach((score, index) => {
-    let li = document.createElement('li');
-    li.classList.add('flex', 'space-between');
+  if (highScores.length === 0) {
+    let p = document.createElement('p');
+    p.innerText = 'No games played';
+    p.classList.add('center-text')
+    scoresContainer.append(p);
+  } else {
+    highScores.forEach((score, index) => {
+      let li = document.createElement('li');
+      li.classList.add('flex', 'space-between');
 
-    li.innerHTML = 
-    `
-    <p>#${index + 1}</p>
-    <p>${score.hits} hits</p>
-    <p>${score.date}</p>
-    `;
+      li.innerHTML = 
+      `
+      <p>#${index + 1}</p>
+      <p>${score.hits} hits</p>
+      <p>${score.date}</p>
+      `;
 
-    scoresContainer.append(li);
-  })
+      scoresContainer.append(li);
+    });
+  }
 }
 
 function showLeaderboard() {

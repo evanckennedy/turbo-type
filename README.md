@@ -23,6 +23,8 @@ TurboType is a fast-paced typing game designed to improve your typing speed and 
 - Random word generation for endless typing challenges.
 - Real-time score tracking to monitor your progress.
 - Engaging sound effects to enhance the gaming experience.
+- Top 9 scores are stored in local storage in the leaderboard.
+- Real-time feedback on correctly inputted letters with color changes.
 
 ## Technologies Used
 

@@ -72,9 +72,7 @@ body {
 
 .disabled {
   color: var(--grey) !important;
-  cursor: default;
-  pointer-events: none;
-  transition: none;
+  cursor: not-allowed !important;
 }
 
 h1, h2, p {

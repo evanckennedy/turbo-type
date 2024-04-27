@@ -30,7 +30,7 @@ gameOver.volume = 0.6;
 const countdown = new Audio('./assets/media/countdown.mp3');
 countdown.volume = 0.55;
 
-let count = 10;
+let count = 60;
 let hits = 0;
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -114,7 +114,7 @@ function startCount() {
 /*  Start Game                                           */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function startGame() {
-  count = 10;
+  count = 60;
   hits = 0;
   timeRemaining.innerText = count;
   hitsDisplay.innerText = '0';
@@ -176,7 +176,7 @@ function enableInput() {
 /*  Restart Game                                         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function restartGame() {
-  count = 10;
+  count = 60;
   timeRemaining.innerText = count;
   hitsDisplay.innerText = '0';
   restart.classList.add('hidden')
